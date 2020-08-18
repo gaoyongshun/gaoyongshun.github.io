@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -428,12 +428,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/HTML5/">
+                                <span class="chip bg-color">HTML5</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -449,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-16
+                    2020-08-18
                 </div>
                 
 
@@ -472,17 +489,25 @@
 <p>判断浏览器是否兼容</p>
 <p>if(window.localStorage){true}else{false}</p>
 <p>存储方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localStorage.t1&#x3D;&quot;aaa&quot;;</span><br><span class="line"></span><br><span class="line">localStorage[t2]&#x3D;&quot;bbb&quot;;</span><br><span class="line"></span><br><span class="line">localStorage.setItem(&quot;t3&quot;,&quot;ccc&quot;);</span><br></pre></td></tr></table></figure>
+<pre><code>localStorage.t1=&quot;aaa&quot;;
 
+localStorage[t2]=&quot;bbb&quot;;
+
+localStorage.setItem(&quot;t3&quot;,&quot;ccc&quot;);</code></pre>
 <p>访问方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localStorage.t1;</span><br><span class="line"></span><br><span class="line">localStorage[&quot;t2&quot;];</span><br><span class="line"></span><br><span class="line">localStorage.getItem(&quot;t3&quot;);</span><br></pre></td></tr></table></figure>
+<pre><code>localStorage.t1;
 
+localStorage[&quot;t2&quot;];
+
+localStorage.getItem(&quot;t3&quot;);</code></pre>
 <p>删除方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(key);&#x2F;&#x2F;清除key值</span><br><span class="line"></span><br><span class="line">localStorage.clear();&#x2F;&#x2F;清除所有</span><br></pre></td></tr></table></figure>
+<pre><code>localStorage.removeItem(key);//清除key值
 
+localStorage.clear();//清除所有</code></pre>
 <p>部分方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localStorage.length &#x2F;&#x2F;获取多少键值对</span><br><span class="line"></span><br><span class="line">localStorage.key( i );&#x2F;&#x2F;获取 i 的键值</span><br></pre></td></tr></table></figure>
+<pre><code>localStorage.length //获取多少键值对
 
+localStorage.key( i );//获取 i 的键值</code></pre>
 <p>注：存储对象时，需要转化成JSON字符串存储。取出来后再格式化成JSON格式</p>
 <p>==============================================</p>
 <p>3.Html5 Web Sql Database 数据库</p>
@@ -497,17 +522,55 @@
 <p>3.3 执行sql命令executeSql(“sql语句”)</p>
 <p>例子：</p>
 <p>—建库</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mydb=<span class="built_in">window</span>.openDatabase(<span class="string">&quot;mydb&quot;</span>,<span class="string">&quot;1.0&quot;</span>,<span class="string">&quot;测试数据库&quot;</span>,<span class="number">20000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(mydb) <span class="built_in">console</span>.log(<span class="string">&quot;mydb创建成功！&quot;</span>);</span><br><span class="line"></span><br><span class="line">---执行建表语句</span><br><span class="line"></span><br><span class="line">mydb.transaction(<span class="function"><span class="keyword">function</span>(<span class="params">tx</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">tx.executeSql(<span class="string">&quot;CREATE TABLE TT (ID INT UNIQUE,TITLE TEXT)&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> mydb<span class="token operator">=</span>window<span class="token punctuation">.</span><span class="token function">openDatabase</span><span class="token punctuation">(</span><span class="token string">"mydb"</span><span class="token punctuation">,</span><span class="token string">"1.0"</span><span class="token punctuation">,</span><span class="token string">"测试数据库"</span><span class="token punctuation">,</span><span class="token number">20000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+<span class="token keyword">if</span><span class="token punctuation">(</span>mydb<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"mydb创建成功！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">--</span><span class="token operator">-</span>执行建表语句
+
+mydb<span class="token punctuation">.</span><span class="token function">transaction</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>tx<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+tx<span class="token punctuation">.</span><span class="token function">executeSql</span><span class="token punctuation">(</span><span class="token string">"CREATE TABLE TT (ID INT UNIQUE,TITLE TEXT)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>—插入数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mydb.transaction(function(tx)&#123;</span><br><span class="line"></span><br><span class="line">tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( 1,&#39;i am title&#39;)&quot;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">mydb.transaction(function(tx)&#123;</span><br><span class="line"></span><br><span class="line">tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( ?,?)&quot;,[1,&quot;i am title&quot;]);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>mydb.transaction(function(tx)&amp;#123;
 
+tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( 1,&#39;i am title&#39;)&quot;);
+
+&amp;#125;);
+
+mydb.transaction(function(tx)&amp;#123;
+
+tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( ?,?)&quot;,[1,&quot;i am title&quot;]);
+
+&amp;#125;);</code></pre>
 <p>—删除数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mydb.transaction(function(tx)&#123;</span><br><span class="line"></span><br><span class="line">tx.executeSql(&quot;DELETE FROM TT WHERE ID&#x3D;1&quot;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>mydb.transaction(function(tx)&amp;#123;
 
+tx.executeSql(&quot;DELETE FROM TT WHERE ID=1&quot;);
+
+&amp;#125;);</code></pre>
 <p>—查询语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mydb.transaction(function(tx)&#123;</span><br><span class="line"></span><br><span class="line">tx.executeSql(&quot;select * from tt&quot;,[],function(tx,rs)&#123;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查询结果</span><br><span class="line"></span><br><span class="line">for(var i &#x3D;0; i &lt; rs.rows.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;ID&#39;]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;),function(tx)&#123;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;错误信息</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>mydb.transaction(function(tx)&amp;#123;
 
+tx.executeSql(&quot;select * from tt&quot;,[],function(tx,rs)&amp;#123;
+
+//查询结果
+
+for(var i =0; i &lt; rs.rows.length;i++)&amp;#123;
+
+console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;ID&#39;]);
+
+&amp;#125;
+
+&amp;#125;),function(tx)&amp;#123;
+
+//错误信息
+
+&amp;#125;);
+
+&amp;#125;);</code></pre>
 <p>4.Html5离线应用存储（浏览器兼容允许下）</p>
 <p>4.1 修改服务器的配置文件（apache/nginx/iis等）</p>
 <p>让服务器支持.manifest文件</p>
@@ -582,7 +645,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/HTML5/">
+                                    <span class="chip bg-color">HTML5</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -777,11 +848,23 @@ onerror    在
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Rookie Gao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HTML5/">
+                        <span class="chip bg-color">HTML5</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -818,11 +901,23 @@ onerror    在
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Rookie Gao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="post-category">
+                                    经验
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9D%91/">
+                        <span class="chip bg-color">坑</span>
+                    </a>
+                    
                 </div>
                 
             </div>
