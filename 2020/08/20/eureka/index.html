@@ -430,8 +430,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTML5/">
-                                <span class="chip bg-color">HTML5</span>
+                            <a href="/tags/Springboot/">
+                                <span class="chip bg-color">Springboot</span>
+                            </a>
+                        
+                            <a href="/tags/Eureka/">
+                                <span class="chip bg-color">Eureka</span>
                             </a>
                         
                     </div>
@@ -442,8 +446,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
                             </a>
                         
                     </div>
@@ -455,14 +459,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-16
+                    2020-08-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-18
+                    2020-08-22
                 </div>
                 
 
@@ -476,48 +480,93 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h6 id="H5学习笔记"><a href="#H5学习笔记" class="headerlink" title="H5学习笔记"></a>H5学习笔记</h6><p>一、video标签学习</p>
-<p>onafterprint    文档打印之后运行的脚本。</p>
-<p>onbeforeprint    文档打印之前运行的脚本。</p>
-<p>onbeforeunload    文档卸载之前运行的脚本。</p>
-<p>onerror    在错误发生时运行的脚本。</p>
-<p>onhaschange    当文档已改变时运行的脚本。</p>
-<p>onload    页面结束加载之后触发。</p>
-<p>onmessage    在消息被触发时运行的脚本。</p>
-<p>onoffline    当文档离线时运行的脚本。</p>
-<p>ononline    当文档上线时运行的脚本。</p>
-<p>onpagehide    当窗口隐藏时运行的脚本。</p>
-<p>onpageshow    当窗口成为可见时运行的脚本。</p>
-<p>onpopstate    当窗口历史记录改变时运行的脚本。</p>
-<p>onredo    当文档执行撤销（redo）时运行的脚本。</p>
-<p>onresize        当浏览器窗口被调整大小时触发。</p>
-<p>onstorage    在 Web Storage 区域更新后运行的脚本。</p>
-<p>onundo    在文档执行 undo 时运行的脚本。</p>
-<p>onunload        一旦页面已下载时触发（或者浏览器窗口已被关闭）。</p>
-<p>musted         静音</p>
-<p>二、canvas画布学习</p>
-<p>1、画布中包含对线、矩形、球形等2D图形的制图。首先要先获取画布属性：</p>
-<p>var canvas = document.getElementById(“canvas”);</p>
-<p>var context = canvas.getContext(“2d”);</p>
-<p>注：此处为JavaScript原生写法，jquery写法测试发现获取不到canvas属性</p>
-<p>（测试工具： chrome浏览器）；</p>
-<p>2、线方法绘制：</p>
-<p>context .moveTo(X,Y);//定义起点的X/Y坐标</p>
-<p>context .lineTo(X,Y);//定义终点</p>
-<p>context .stroke();//绘图</p>
-<p>3、圆：</p>
-<p>context.beginPath();//清空一些设置的参数</p>
-<p>context.arc(x,y,r,0,2*Math.PI,true);//设置XY坐标，r为半径长度，false:逆时针 true:顺时针</p>
-<p>0则表示开始的画的起始度数（3点钟为0度）；</p>
-<p>context.fill();-&gt;填充圆，没有这步 则是圆弧状</p>
-<p>context.stroke();//开始渲染</p>
-<p>4、矩形：</p>
-<p>绘制矩形前：可添加对应的矩形样式，接下来绘制矩形的位置与大小。在画布中矩形的填充</p>
-<p>色包括单色填充，渐变色填充等。</p>
-<p>context.fillStyle=”blue”或者context.fillStyle=”rgba(255,255,0,0.5)”</p>
-<p>context.fillRect(x,y,width,height);</p>
-<p>5、动态图</p>
-<p>配合JS的定时器与画布的context.clearRect方法，来实现画布中的动态效果。</p>
+                <h1 id="Eureka学习（一）"><a href="#Eureka学习（一）" class="headerlink" title="Eureka学习（一）"></a>Eureka学习（一）</h1><h2 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h2><p>概念什么的就不说了，网上一大把，本文主要记录如何搭建简单的Eureka服务端内容</p>
+<p>Springboot 2.1.3.RELEASE + SpringCloud Greenwich.SR2</p>
+<p>以下是简单的springboot与springcloud版本对比图（来源网上）</p>
+<table>
+<thead>
+<tr>
+<th>Spring Boot</th>
+<th>Spring Cloud</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.2.x</td>
+<td>Angel版本</td>
+</tr>
+<tr>
+<td>1.3.x</td>
+<td>Brixton版本</td>
+</tr>
+<tr>
+<td>1.4.x stripes</td>
+<td>Camden版本</td>
+</tr>
+<tr>
+<td>1.5.x</td>
+<td>Dalston版本、Edgware版本</td>
+</tr>
+<tr>
+<td>2.0.x</td>
+<td>Finchley版本</td>
+</tr>
+<tr>
+<td>2.1.x</td>
+<td>Greenwich.SR2</td>
+</tr>
+</tbody></table>
+<h2 id="二、搭建"><a href="#二、搭建" class="headerlink" title="二、搭建"></a>二、搭建</h2><p>新建项目：eurekatest</p>
+<p>pom.xml详情</p>
+<pre class=" language-yaml"><code class="language-yaml">&lt;parent<span class="token punctuation">></span>
+    &lt;groupId<span class="token punctuation">></span>org.springframework.boot&lt;/groupId<span class="token punctuation">></span>
+    &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>boot<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>parent&lt;/artifactId<span class="token punctuation">></span>
+    &lt;version<span class="token punctuation">></span>2.1.3.RELEASE&lt;/version<span class="token punctuation">></span>
+    &lt;relativePath/<span class="token punctuation">></span>
+&lt;/parent<span class="token punctuation">></span>
+&lt;dependencies<span class="token punctuation">></span>
+    &lt;dependency<span class="token punctuation">></span>
+        &lt;groupId<span class="token punctuation">></span>org.springframework.boot&lt;/groupId<span class="token punctuation">></span>
+        &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>boot<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>web&lt;/artifactId<span class="token punctuation">></span>
+    &lt;/dependency<span class="token punctuation">></span>
+    &lt;dependency<span class="token punctuation">></span>
+        &lt;groupId<span class="token punctuation">></span>org.springframework.cloud&lt;/groupId<span class="token punctuation">></span>
+        &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>netflix<span class="token punctuation">-</span>eureka<span class="token punctuation">-</span>client&lt;/artifactId<span class="token punctuation">></span>
+    &lt;/dependency<span class="token punctuation">></span>
+    &lt;dependency<span class="token punctuation">></span>
+        &lt;groupId<span class="token punctuation">></span>org.springframework.cloud&lt;/groupId<span class="token punctuation">></span>
+        &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>netflix<span class="token punctuation">-</span>eureka<span class="token punctuation">-</span>server&lt;/artifactId<span class="token punctuation">></span>
+    &lt;/dependency<span class="token punctuation">></span>
+    &lt;dependency<span class="token punctuation">></span>
+        &lt;groupId<span class="token punctuation">></span>org.springframework.boot&lt;/groupId<span class="token punctuation">></span>
+        &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>boot<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>test&lt;/artifactId<span class="token punctuation">></span>
+        &lt;scope<span class="token punctuation">></span>test&lt;/scope<span class="token punctuation">></span>
+    &lt;/dependency<span class="token punctuation">></span>
+&lt;/dependencies<span class="token punctuation">></span>
+&lt;dependencyManagement<span class="token punctuation">></span>
+    &lt;dependencies<span class="token punctuation">></span>
+        &lt;dependency<span class="token punctuation">></span>
+            &lt;groupId<span class="token punctuation">></span>org.springframework.cloud&lt;/groupId<span class="token punctuation">></span>
+            &lt;artifactId<span class="token punctuation">></span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>dependencies&lt;/artifactId<span class="token punctuation">></span>
+            &lt;version<span class="token punctuation">></span>Greenwich.SR2&lt;/version<span class="token punctuation">></span>
+            &lt;type<span class="token punctuation">></span>pom&lt;/type<span class="token punctuation">></span>
+            &lt;scope<span class="token punctuation">></span>import&lt;/scope<span class="token punctuation">></span>
+        &lt;/dependency<span class="token punctuation">></span>
+    &lt;/dependencies<span class="token punctuation">></span>
+&lt;/dependencyManagement<span class="token punctuation">></span></code></pre>
+<p>Application:</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableEurekaServer</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EurekaServiceApplication</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>EurekaServiceApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p>启动即可。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://localhost:8090/eureka/">http://localhost:8090/eureka/</a></p>
+<p><img src="/2020/08/20/eureka/1.png"></p>
+<p>OK了。</p>
+<p>参考文献：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tubeWang/p/11628827.html">https://www.cnblogs.com/tubeWang/p/11628827.html</a></p>
 
             </div>
             <hr/>
@@ -543,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://gaoys.top/2020/08/16/H5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">http://gaoys.top/2020/08/16/H5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://gaoys.top/2020/08/20/eureka/">http://gaoys.top/2020/08/20/eureka/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -581,8 +630,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/HTML5/">
-                                    <span class="chip bg-color">HTML5</span>
+                                <a href="/tags/Springboot/">
+                                    <span class="chip bg-color">Springboot</span>
+                                </a>
+                            
+                                <a href="/tags/Eureka/">
+                                    <span class="chip bg-color">Eureka</span>
                                 </a>
                             
                         </div>
@@ -750,9 +803,66 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/08/20/eureka/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Eureka学习（一）一、环境概念什么的就不说了，网上一大把，本文主要记录如何搭建简单的Eureka服务端内容
+Springboot 2.1.3.RELEASE + SpringCloud Greenwich.SR2
+以下是简单的sprin
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Springboot/">
+                        <span class="chip bg-color">Springboot</span>
+                    </a>
+                    
+                    <a href="/tags/Eureka/">
+                        <span class="chip bg-color">Eureka</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/08/18/JDK8%E6%96%B0%E7%89%B9%E6%80%A7/">
                     <div class="card-image">
@@ -772,9 +882,9 @@ interface Formula &amp;#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -796,66 +906,6 @@ interface Formula &amp;#123;
                     
                     <a href="/tags/Lamba/">
                         <span class="chip bg-color">Lamba</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/08/16/H5%20%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            H5 本地存储常见方法1、通过浏览器存储数据cookie
-2、HTML5：(5M)
-
-
-localstorage本地存储 
-sessionStorage 伴随session存在
-判断浏览器是否兼容
-if(window.localStorag
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HTML5/">
-                        <span class="chip bg-color">HTML5</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
