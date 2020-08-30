@@ -434,8 +434,8 @@
                                 <span class="chip bg-color">Springboot</span>
                             </a>
                         
-                            <a href="/tags/Eureka/">
-                                <span class="chip bg-color">Eureka</span>
+                            <a href="/tags/Netty/">
+                                <span class="chip bg-color">Netty</span>
                             </a>
                         
                     </div>
@@ -459,14 +459,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-22
+                    2020-08-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-22
+                    2020-08-30
                 </div>
                 
 
@@ -480,60 +480,120 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Eureka学习（二）"><a href="#Eureka学习（二）" class="headerlink" title="Eureka学习（二）"></a>Eureka学习（二）</h1><h2 id="一、搭建"><a href="#一、搭建" class="headerlink" title="一、搭建"></a>一、搭建</h2><p>接上一章节，我们在工程里面新建模块eurekaclient1。</p>
-<p><img src="/2020/08/22/Eureka%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200822212731753.png" alt="image-20200822212731753"></p>
-<p>1.新建启动类Application</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
-<span class="token annotation punctuation">@EnableEurekaClient</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EurekaClientApplication</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>EurekaClientApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<p>2.新建配置文件application.yml</p>
+                <h1 id="Springboot整合Netty框架"><a href="#Springboot整合Netty框架" class="headerlink" title="Springboot整合Netty框架"></a>Springboot整合Netty框架</h1><h2 id="一、新建Springboot模块"><a href="#一、新建Springboot模块" class="headerlink" title="一、新建Springboot模块"></a>一、新建Springboot模块</h2><p>以我们之前的工程为主，新建一个module为Nettytest。</p>
+<p><img src="/2020/08/30/springbootnetty/image-20200830101713479.png" alt="image-20200830101713479"></p>
+<h2 id="二、pom文件中配置netty包"><a href="#二、pom文件中配置netty包" class="headerlink" title="二、pom文件中配置netty包"></a>二、pom文件中配置netty包</h2><pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.netty<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>netty-all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span> <span class="token comment" spellcheck="true">&lt;!-- Use 'netty-all' for 4.0 or above --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.1.32.Final<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>yaml文件</p>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8091</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8870</span>
   <span class="token key atrule">servlet</span><span class="token punctuation">:</span>
-    <span class="token key atrule">context-path</span><span class="token punctuation">:</span> /eurekaclient
+    <span class="token key atrule">context-path</span><span class="token punctuation">:</span> /netty
 <span class="token key atrule">spring</span><span class="token punctuation">:</span>
   <span class="token key atrule">application</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> eureka<span class="token punctuation">-</span>client
-<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">serviceUrl</span><span class="token punctuation">:</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>8761/eureka/eureka</code></pre>
-<p>3.启动成功！！！！查看服务端</p>
-<p><img src="/2020/08/22/Eureka%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20200822212924458.png" alt="image-20200822212924458"></p>
-<p>大功告成！！！！！！</p>
-<h2 id="二、踩坑"><a href="#二、踩坑" class="headerlink" title="二、踩坑"></a>二、踩坑</h2><p>由于是自己探索的搭建，所以容易碰到一些弱智且脑残的问题。</p>
-<h3 id="坑一-Caused-by-java-net-ConnectException-Connection-refused-connect"><a href="#坑一-Caused-by-java-net-ConnectException-Connection-refused-connect" class="headerlink" title="坑一 Caused by: java.net.ConnectException: Connection refused: connect"></a>坑一 Caused by: java.net.ConnectException: Connection refused: connect</h3><p>疯狂度娘的结果大概有集中:</p>
-<p>1.在配置中，我单纯的使用工具properties文件转yaml文件的工具，将配置参数直接做转化。发现部分参数在转化后是不能使用的。工具：<a target="_blank" rel="noopener" href="https://www.toyaml.com/index.html">https://www.toyaml.com/index.html</a></p>
-<p>举例：</p>
-<p>yaml文件中</p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">eureka</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">fetchRegistry</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-    <span class="token key atrule">registerWithEureka</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">serviceUrl</span><span class="token punctuation">:</span>
-      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>8761/eureka/eureka</code></pre>
-<p>properties文件中</p>
-<pre><code>eureka.client.fetchRegistry=false
-eureka.client.register-with-eureka= false
-eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</code></pre>
-<p>2.服务路径配置错误（正解）</p>
-<p>配置如下：</p>
-<pre><code>eureka:
-  client:
-    fetchRegistry: false
-    registerWithEureka: false
-  serviceUrl:
-      defaultZone: http://localhost:8761/eureka/</code></pre>
-<p>奇怪怎么就找不到呢？？？？</p>
-<p>后面发现，我在路径后面加个/eureka就找到了。</p>
-<p>在回到服务端查看，设置了一个service.context-path = eureka。</p>
-<p>彻悟！</p>
-<p>参考文档：</p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1a700a283107?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/1a700a283107?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a></p>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> netty<span class="token punctuation">-</span>server
+<span class="token key atrule">netty</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8872</span></code></pre>
+<h2 id="三、配置NettyServer-与-handler-处理器"><a href="#三、配置NettyServer-与-handler-处理器" class="headerlink" title="三、配置NettyServer 与 handler 处理器"></a>三、配置NettyServer 与 handler 处理器</h2><ol>
+<li>我们将Netty的服务端交由Spring管理，增加@Component注解</li>
+</ol>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NettyServer</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&amp;#123;netty.port&amp;#125;"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> port<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        EventLoopGroup boss <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NioEventLoopGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        EventLoopGroup work <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NioEventLoopGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ServerBootstrap b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ServerBootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        b<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span>boss<span class="token punctuation">,</span> work<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span>NioServerSocketChannel<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">localAddress</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InetSocketAddress</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">childHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ChannelInitializer</span><span class="token operator">&lt;</span>SocketChannel<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+                    <span class="token annotation punctuation">@Override</span>
+                    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">initChannel</span><span class="token punctuation">(</span>SocketChannel ch<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        ch<span class="token punctuation">.</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">EchoServerHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动netty服务"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ChannelFuture channelFuturef <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>channelFuturef<span class="token punctuation">.</span><span class="token function">isSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"启动成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<ol start="2">
+<li><p>配置处理器</p>
+<p>通过重写父类方法实现业务场景需求</p>
+<p>channelRead：读取缓冲区信息</p>
+<p>channelReadComlete：读取完成后</p>
+<p>exceptionCaught：异常处理方式</p>
+<p>channelRegistered：客户端连接</p>
+<p>channelUnregistered：客户端断开连接</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EchoServerHandler</span> <span class="token keyword">extends</span> <span class="token class-name">ChannelInboundHandlerAdapter</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelRead</span><span class="token punctuation">(</span>ChannelHandlerContext ctx<span class="token punctuation">,</span> Object msg<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        ByteBuf in <span class="token operator">=</span> <span class="token punctuation">(</span>ByteBuf<span class="token punctuation">)</span> msg<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Server received: "</span> <span class="token operator">+</span> in<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>CharsetUtil<span class="token punctuation">.</span>UTF_8<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelReadComplete</span><span class="token punctuation">(</span>ChannelHandlerContext ctx<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">writeAndFlush</span><span class="token punctuation">(</span>ChannelFutureListener<span class="token punctuation">.</span>CLOSE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">exceptionCaught</span><span class="token punctuation">(</span>ChannelHandlerContext ctx<span class="token punctuation">,</span> Throwable cause<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        cause<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelRegistered</span><span class="token punctuation">(</span>ChannelHandlerContext ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"进来："</span><span class="token operator">+</span>ctx<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">channelRegistered</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">channelUnregistered</span><span class="token punctuation">(</span>ChannelHandlerContext ctx<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"离开："</span><span class="token operator">+</span>ctx<span class="token punctuation">.</span><span class="token function">channel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">channelUnregistered</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+</li>
+<li><p>启动类</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NettyApplication</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>NettyApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ol>
+<h2 id="四、运行检验"><a href="#四、运行检验" class="headerlink" title="四、运行检验"></a>四、运行检验</h2><p>我们先启动项目</p>
+<p><img src="/2020/08/30/springbootnetty/image-20200830102226877.png" alt="image-20200830102226877"></p>
+<p>启动成功；</p>
+<p>使用cmd 的telnet请求服务端信息；（telnet使用方式请自行百度）</p>
+<p><img src="/2020/08/30/springbootnetty/image-20200830102331172.png" alt="image-20200830102331172"></p>
+<p><img src="/2020/08/30/springbootnetty/image-20200830102357445.png" alt="image-20200830102357445"></p>
+<p>接下去我们关闭cmd界面</p>
+<p>此时控制台内容</p>
+<pre><code>进来：d496cb0f
+Server received: hello world
+离开：d496cb0f</code></pre>
+<p>Netty服务配置成功，接下去只需要根据业务需求实现。</p>
+<p>参考文档链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2a2562f85241">https://www.jianshu.com/p/2a2562f85241</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e3750cea5864">https://www.jianshu.com/p/e3750cea5864</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxyxiaobao/p/11946015.html">https://www.cnblogs.com/cxyxiaobao/p/11946015.html</a></p>
 
             </div>
             <hr/>
@@ -559,7 +619,7 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://gaoys.top/2020/08/22/Eureka%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">http://gaoys.top/2020/08/22/Eureka%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+                    <a href="http://gaoys.top/2020/08/30/springbootnetty/">http://gaoys.top/2020/08/30/springbootnetty/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,8 +661,8 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                                     <span class="chip bg-color">Springboot</span>
                                 </a>
                             
-                                <a href="/tags/Eureka/">
-                                    <span class="chip bg-color">Eureka</span>
+                                <a href="/tags/Netty/">
+                                    <span class="chip bg-color">Netty</span>
                                 </a>
                             
                         </div>
@@ -770,9 +830,10 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/08/30/springbootnetty/">
                     <div class="card-image">
@@ -793,9 +854,9 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -808,6 +869,7 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -830,7 +892,7 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/20/eureka/">
+                <a href="/2020/08/22/Eureka%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/">
                     <div class="card-image">
                         
                         
@@ -842,14 +904,17 @@ eureka.client.service-url.default-zone= http://localhost:8761/eureka/eureka</cod
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Eureka学习（一）一、环境概念什么的就不说了，网上一大把，本文主要记录如何搭建简单的Eureka服务端内容
-Springboot 2.1.3.RELEASE + SpringCloud Greenwich.SR2
-以下是简单的sprin
+                            Eureka学习（二）一、搭建接上一章节，我们在工程里面新建模块eurekaclient1。
+
+1.新建启动类Application
+@SpringBootApplication
+@EnableEurekaClient
+public cla
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                             </span>
                         <span class="publish-author">
                             
