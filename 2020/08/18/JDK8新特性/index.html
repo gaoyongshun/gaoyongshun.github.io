@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GaoBlog">
+    <meta name="keywords" content="JDK8新特性【转】, GaoBlog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>GaoBlog</title>
+    <title>JDK8新特性【转】 | GaoBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.0.2"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.1.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/java.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">JDK8新特性【转】</h1>
                 </div>
             </div>
         </div>
@@ -323,105 +323,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -466,7 +371,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-18
+                    2020-08-30
                 </div>
                 
 
@@ -481,20 +386,20 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h6 id="JDK8新特性【转】"><a href="#JDK8新特性【转】" class="headerlink" title="JDK8新特性【转】"></a>JDK8新特性【转】</h6><h1 id="一、接口的默认方法"><a href="#一、接口的默认方法" class="headerlink" title="一、接口的默认方法"></a>一、接口的默认方法</h1><p>Java 8允许我们给接口添加一个非抽象的方法实现，只需要使用 default关键字即可，这个特征又叫做扩展方法，示例如下：</p>
-<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">interface</span> <span class="token class-name">Formula</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">interface</span> <span class="token class-name">Formula</span> <span class="token punctuation">{</span>
     <span class="token keyword">double</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">default</span> <span class="token keyword">double</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span> <span class="token keyword">double</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Formula接口在拥有calculate方法之外同时还定义了sqrt方法，实现了Formula接口的子类只需要实现一个calculate方法，默认方法sqrt将在子类上可以直接使用。</p>
-<pre class=" language-cpp"><code class="language-cpp">Formula formula <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Formula</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-cpp"><code class="language-cpp">Formula formula <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Formula</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     @Override
-    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calculate</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>a <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 formula<span class="token punctuation">.</span><span class="token function">calculate</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 100.0</span>
 formula<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">// 4.0</span></code></pre>
@@ -503,17 +408,17 @@ formula<span class="token punctuation">.</span><span class="token function">sqrt
 <h1 id="二、Lambda-表达式"><a href="#二、Lambda-表达式" class="headerlink" title="二、Lambda 表达式"></a>二、Lambda 表达式</h1><p>首先看看在老版本的Java中是如何排列字符串的：</p>
 <pre class=" language-dart"><code class="language-dart">List<span class="token operator">&lt;</span>String<span class="token operator">></span> names <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"peter"</span><span class="token punctuation">,</span> <span class="token string">"anna"</span><span class="token punctuation">,</span> <span class="token string">"mike"</span><span class="token punctuation">,</span> <span class="token string">"xenia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token metadata symbol">@Override</span>
-    public int <span class="token function">compare</span><span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    public int <span class="token function">compare</span><span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> b<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>只需要给静态方法 Collections.sort 传入一个List对象以及一个比较器来按指定顺序排列。通常做法都是创建一个匿名的比较器对象然后将其传递给sort方法。</p>
 <p>在Java 8 中你就没必要使用这种传统的匿名对象的方式了，Java 8提供了更简洁的语法，lambda表达式：</p>
-<pre class=" language-rust"><code class="language-rust">Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-rust"><code class="language-rust">Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> b<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>看到了吧，代码变得更段且更具有可读性，但是实际上还可以写得更短：</p>
 <pre class=" language-rust"><code class="language-rust">Collections<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span> <span class="token punctuation">(</span>String a<span class="token punctuation">,</span> String b<span class="token punctuation">)</span> <span class="token punctuation">-></span> b<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>对于函数体只有一行代码的，你可以去掉大括号{}以及return关键字，但是你还可以写得更短点：</p>
@@ -522,9 +427,9 @@ Collections<span class="token punctuation">.</span><span class="token function">
 <h1 id="三、函数式接口"><a href="#三、函数式接口" class="headerlink" title="三、函数式接口"></a>三、函数式接口</h1><p>Lambda表达式是如何在java的类型系统中表示的呢？每一个lambda表达式都对应一个类型，通常是接口类型。而“函数式接口”是指仅仅只包含一个抽象方法的接口，每一个该类型的lambda表达式都会被匹配到这个抽象方法。因为 默认方法 不算抽象方法，所以你也可以给你的函数式接口添加默认方法。</p>
 <p>我们可以将lambda表达式当作任意只包含一个抽象方法的接口类型，确保你的接口一定达到这个要求，你只需要给你的接口添加 @FunctionalInterface 注解，编译器如果发现你标注了这个注解的接口有多于一个抽象方法的时候会报错的。</p>
 <pre class=" language-tsx"><code class="language-tsx">@FunctionalInterface
-interface Converter<F, T> &#123;
+interface Converter<F, T> {
     T convert(F from);
-&#125;
+}
 Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
 Integer converted = converter.convert("123");
 System.out.println(converted);    // 123</code></pre>
@@ -539,21 +444,21 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <span class="token builtin">String</span> converted <span class="token operator">=</span> converter<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token constant">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>converted<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">/</span><span class="token operator">/</span> <span class="token string">"J"</span></code></pre>
 <p>接下来看看构造函数是如何使用::关键字来引用的，首先我们定义一个包含多个构造函数的简单类：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
     String firstName<span class="token punctuation">;</span>
     String lastName<span class="token punctuation">;</span>
 
-    <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-    <span class="token function">Person</span><span class="token punctuation">(</span>String firstName<span class="token punctuation">,</span> String lastName<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">Person</span><span class="token punctuation">(</span>String firstName<span class="token punctuation">,</span> String lastName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>lastName <span class="token operator">=</span> lastName<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>接下来我们指定一个用来创建Person对象的对象工厂接口：</p>
-<pre class=" language-dart"><code class="language-dart">interface <span class="token class-name">PersonFactory</span><span class="token operator">&lt;</span>P <span class="token keyword">extends</span> <span class="token class-name">Person</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-dart"><code class="language-dart">interface <span class="token class-name">PersonFactory</span><span class="token operator">&lt;</span>P <span class="token keyword">extends</span> <span class="token class-name">Person</span><span class="token operator">></span> <span class="token punctuation">{</span>
     P <span class="token function">create</span><span class="token punctuation">(</span>String firstName<span class="token punctuation">,</span> String lastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>这里我们使用构造函数引用来将他们关联起来，而不是实现一个完整的工厂：</p>
 <pre class=" language-cpp"><code class="language-cpp">PersonFactory<span class="token operator">&lt;</span>Person<span class="token operator">></span> personFactory <span class="token operator">=</span> Person<span class="token operator">::</span><span class="token keyword">new</span><span class="token punctuation">;</span>
 Person person <span class="token operator">=</span> personFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"Peter"</span><span class="token punctuation">,</span> <span class="token string">"Parker"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -578,22 +483,22 @@ Converter<span class="token operator">&lt;</span>Integer<span class="token punct
 num <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span></code></pre>
 <p>在lambda表达式中试图修改num同样是不允许的。</p>
 <h1 id="七、访问对象字段与静态变量"><a href="#七、访问对象字段与静态变量" class="headerlink" title="七、访问对象字段与静态变量"></a>七、访问对象字段与静态变量</h1><p>和本地变量不同的是，lambda内部对于实例的字段以及静态变量是即可读又可写。该行为和匿名对象是一致的：</p>
-<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">Lambda4</span> <span class="token entity" title="&#123;">&amp;#123;</span>
+<pre class=" language-jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">Lambda4</span> <span class="token punctuation">{</span>
     <span class="token keyword">static</span> int outerStaticNum<span class="token punctuation">;</span>
     int outerNum<span class="token punctuation">;</span>
 
-    <span class="token keyword">void</span> <span class="token function">testScopes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token entity" title="&#123;">&amp;#123;</span>
-        Converter<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token operator">></span> stringConverter1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
+    <span class="token keyword">void</span> <span class="token function">testScopes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Converter<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token operator">></span> stringConverter1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
             outerNum <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-        Converter<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token operator">></span> stringConverter2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token entity" title="&#123;">&amp;#123;</span>
+        Converter<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token operator">></span> stringConverter2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
             outerStaticNum <span class="token operator">=</span> <span class="token number">72</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token entity" title="&#125;">&amp;#125;</span><span class="token punctuation">;</span>
-    <span class="token entity" title="&#125;">&amp;#125;</span>
-<span class="token entity" title="&#125;">&amp;#125;</span></code></pre>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <h1 id="八、访问接口的默认方法"><a href="#八、访问接口的默认方法" class="headerlink" title="八、访问接口的默认方法"></a>八、访问接口的默认方法</h1><p>还记得第一节中的formula例子么，接口Formula定义了一个默认方法sqrt可以直接被formula的实例包括匿名对象访问到，但是在lambda表达式中这个是不行的。<br> Lambda表达式中是无法访问到默认方法的，以下代码将无法编译：</p>
 <pre class=" language-cpp"><code class="language-cpp">Formula formula <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token function">sqrt</span><span class="token punctuation">(</span> a <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 Built<span class="token operator">-</span>in Functional Interfaces</code></pre>
@@ -730,10 +635,10 @@ reduced<span class="token punctuation">.</span><span class="token function">ifPr
 <p>首先我们创建一个没有重复元素的大表</p>
 <pre class=" language-dart"><code class="language-dart">int max <span class="token operator">=</span> <span class="token number">1000000</span><span class="token punctuation">;</span>
 List<span class="token operator">&lt;</span>String<span class="token operator">></span> values <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> max<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> max<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     UUID uuid <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     values<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>然后我们计算一下排序这个Stream要耗时多久，<br> <strong>串行排序：</strong></p>
 <pre class=" language-csharp"><code class="language-csharp"><span class="token keyword">long</span> t0 <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -760,9 +665,9 @@ System<span class="token punctuation">.</span><span class="token keyword">out</s
 <p>前面提到过，Map类型不支持stream，不过Map提供了一些新的有用的方法来处理一些日常任务。</p>
 <pre class=" language-go"><code class="language-go">Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> String<span class="token operator">></span> <span class="token keyword">map</span> <span class="token operator">=</span> <span class="token builtin">new</span> HashMap<span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">map</span><span class="token punctuation">.</span><span class="token function">putIfAbsent</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">"val"</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token keyword">map</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>以上代码很容易理解， putIfAbsent 不需要我们做额外的存在性检查，而forEach则接收一个Consumer接口来对map里的每一个键值对进行操作。</p>
@@ -881,24 +786,24 @@ System<span class="token punctuation">.</span><span class="token keyword">out</s
 LocalDateTime parsed <span class="token operator">=</span> LocalDateTime<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"Nov 03, 2014 - 07:13"</span><span class="token punctuation">,</span> formatter<span class="token punctuation">)</span><span class="token punctuation">;</span>
 String <span class="token keyword">string</span> <span class="token operator">=</span> formatter<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>parsed<span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span><span class="token keyword">out</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// Nov 03, 2014 - 07:13</span></code></pre>
-<p>和java.text.NumberFormat不一样的是新版的DateTimeFormatter是不可变的，所以它是线程安全的。<br> 关于时间日期格式的详细信息：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html">http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html</a></p>
+<p>和java.text.NumberFormat不一样的是新版的DateTimeFormatter是不可变的，所以它是线程安全的。<br> 关于时间日期格式的详细信息：<a href="https://links.jianshu.com/go?to=http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html" target="_blank" rel="noopener">http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html</a></p>
 <h1 id="十、Annotation-注解"><a href="#十、Annotation-注解" class="headerlink" title="十、Annotation 注解"></a>十、Annotation 注解</h1><p>在Java 8中支持多重注解了，先看个例子来理解一下是什么意思。<br> 首先定义一个包装类Hints注解用来放置一组具体的Hint注解：</p>
-<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@interface</span> Hints &amp;#123<span class="token punctuation">;</span></span>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@interface</span> Hints</span> <span class="token punctuation">{</span>
     Hint[] <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 @<span class="token function">Repeatable</span><span class="token punctuation">(</span>Hints<span class="token number">.</span>class<span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@interface</span> Hint &amp;#123<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@interface</span> Hint</span> <span class="token punctuation">{</span>
     String <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>Java 8允许我们把同一个类型的注解使用多次，只需要给该注解标注一下@Repeatable即可。</p>
 <p>例 1: 使用包装类当容器来存多个注解（老方法）</p>
-<pre class=" language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@Hints</span><span class="token punctuation">(</span>&amp;#<span class="token number">123</span><span class="token punctuation">;</span><span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint2"</span><span class="token punctuation">)</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-<span class="token keyword">class</span> Person &amp;#<span class="token number">123</span><span class="token punctuation">;</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@Hints</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint2"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
 <p>例 2：使用多重注解（新方法）</p>
 <pre class=" language-kotlin"><code class="language-kotlin"><span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint1"</span><span class="token punctuation">)</span>
 <span class="token annotation builtin">@Hint</span><span class="token punctuation">(</span><span class="token string">"hint2"</span><span class="token punctuation">)</span>
-<span class="token keyword">class</span> Person &amp;#<span class="token number">123</span><span class="token punctuation">;</span>&amp;#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">class</span> Person <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
 <p>第二个例子里java编译器会隐性的帮你定义好@Hints注解，了解这一点有助于你用反射来获取这些信息：</p>
 <pre class=" language-kotlin"><code class="language-kotlin">Hint hint <span class="token operator">=</span> Person<span class="token punctuation">.</span>class<span class="token punctuation">.</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span>Hint<span class="token punctuation">.</span>class<span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hint<span class="token punctuation">)</span><span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">// null</span>
@@ -909,10 +814,10 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 Hint<span class="token punctuation">[</span><span class="token punctuation">]</span> hints2 <span class="token operator">=</span> Person<span class="token punctuation">.</span>class<span class="token punctuation">.</span><span class="token function">getAnnotationsByType</span><span class="token punctuation">(</span>Hint<span class="token punctuation">.</span>class<span class="token punctuation">)</span><span class="token punctuation">;</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hints2<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// 2</span></code></pre>
 <p>即便我们没有在Person类上定义@Hints注解，我们还是可以通过 getAnnotation(Hints.class) 来获取 @Hints注解，更加方便的方法是使用 getAnnotationsByType 可以直接获取到所有的@Hint注解。<br> 另外Java 8的注解还增加到两种新的target上了：</p>
-<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@Target</span><span class="token punctuation">(</span>&amp;#123<span class="token punctuation">;</span></span>ElementType<span class="token number">.</span>TYPE_PARAMETER, ElementType<span class="token number">.</span>TYPE_USE&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-<span class="token atrule"><span class="token rule">@interface</span> MyAnnotation &amp;#123<span class="token punctuation">;</span></span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span></code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@Target</span><span class="token punctuation">(</span></span><span class="token punctuation">{</span>ElementType<span class="token number">.</span>TYPE_PARAMETER, ElementType<span class="token number">.</span>TYPE_USE<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token atrule"><span class="token rule">@interface</span> MyAnnotation</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
 <p>关于Java 8的新特性就写到这了，肯定还有更多的特性等待发掘。JDK 1.8里还有很多很有用的东西，比如Arrays.parallelSort, StampedLock和CompletableFuture等等。</p>
-<p>作者：一入码坑深似海<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0bf8fe0f153b">https://www.jianshu.com/p/0bf8fe0f153b</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：一入码坑深似海<br>链接：<a href="https://www.jianshu.com/p/0bf8fe0f153b" target="_blank" rel="noopener">https://www.jianshu.com/p/0bf8fe0f153b</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
             </div>
             <hr/>
@@ -928,7 +833,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Rookie Gao</a>
+                    <a href="/about" rel="external nofollow noreferrer">gaoys</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -951,7 +856,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Rookie Gao</a>
+                    <a href="/about" target="_blank">gaoys</a>
                     !
                 </span>
             </div>
@@ -1156,10 +1061,9 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                 <a href="/2020/08/20/eureka/">
                     <div class="card-image">
                         
+                        <img src="/images/eureka.jpg" class="responsive-img" alt="Eureka学习（一）">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">Eureka学习（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1189,12 +1093,12 @@ Springboot 2.1.3.RELEASE + SpringCloud Greenwich.SR2
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Springboot/">
-                        <span class="chip bg-color">Springboot</span>
-                    </a>
-                    
                     <a href="/tags/Eureka/">
                         <span class="chip bg-color">Eureka</span>
+                    </a>
+                    
+                    <a href="/tags/Springboot/">
+                        <span class="chip bg-color">Springboot</span>
                     </a>
                     
                 </div>
@@ -1211,10 +1115,9 @@ Springboot 2.1.3.RELEASE + SpringCloud Greenwich.SR2
                 <a href="/2020/08/16/H5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
+                        <img src="/images/html5.jpg" class="responsive-img" alt="H5学习笔记">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">H5学习笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1286,100 +1189,6 @@ onerror    在
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 
