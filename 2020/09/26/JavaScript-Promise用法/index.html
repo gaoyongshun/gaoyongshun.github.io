@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="H5 本地存储常见方法, Gao的博客">
+    <meta name="keywords" content="JavaScript Promise用法, Gao的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>H5 本地存储常见方法 | Gao的博客</title>
+    <title>JavaScript Promise用法 | Gao的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/html5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/promise.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">H5 本地存储常见方法</h1>
+                    <h1 class="description center-align post-title">JavaScript Promise用法</h1>
                 </div>
             </div>
         </div>
@@ -335,12 +335,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/HTML5/">
-                                <span class="chip bg-color">HTML5</span>
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/Promise/">
+                                <span class="chip bg-color">Promise</span>
+                            </a>
+                        
+                            <a href="/tags/ES6/">
+                                <span class="chip bg-color">ES6</span>
                             </a>
                         
                     </div>
@@ -364,14 +368,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-16
+                    2020-09-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-30
+                    2020-09-26
                 </div>
                 
 
@@ -385,109 +389,56 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h6 id="H5-本地存储常见方法"><a href="#H5-本地存储常见方法" class="headerlink" title="H5 本地存储常见方法"></a>H5 本地存储常见方法</h6><p>1、通过浏览器存储数据cookie</p>
-<p>2、HTML5：(5M)</p>
-<a id="more"></a>
-
-<p>localstorage本地存储 </p>
-<p>sessionStorage 伴随session存在</p>
-<p>判断浏览器是否兼容</p>
-<p>if(window.localStorage){true}else{false}</p>
-<p>存储方法：</p>
-<pre><code>localStorage.t1=&quot;aaa&quot;;
-
-localStorage[t2]=&quot;bbb&quot;;
-
-localStorage.setItem(&quot;t3&quot;,&quot;ccc&quot;);</code></pre>
-<p>访问方法：</p>
-<pre><code>localStorage.t1;
-
-localStorage[&quot;t2&quot;];
-
-localStorage.getItem(&quot;t3&quot;);</code></pre>
-<p>删除方法：</p>
-<pre><code>localStorage.removeItem(key);//清除key值
-
-localStorage.clear();//清除所有</code></pre>
-<p>部分方法：</p>
-<pre><code>localStorage.length //获取多少键值对
-
-localStorage.key( i );//获取 i 的键值</code></pre>
-<p>注：存储对象时，需要转化成JSON字符串存储。取出来后再格式化成JSON格式</p>
-<p>==============================================</p>
-<p>3.Html5 Web Sql Database 数据库</p>
-<p>通过一套API操纵客户端数据库</p>
-<p>3.1 打开数据库openDatabase()</p>
-<p>打开已有的数据库或者创建新的数据库队象</p>
-<p>—-window.openDatebase(“数据库名-mydatabase”，“数据库版本1.0”,”数据库描述”,数据库大小20000字节)；</p>
-<p>返回对象链接</p>
-<p>3.2 事务transaction()方法</p>
-<p>控制事务提交或者回滚</p>
-<p>database.transaction(function(obj){  …  });</p>
-<p>3.3 执行sql命令executeSql(“sql语句”)</p>
-<p>例子：</p>
-<p>—建库</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> mydb<span class="token operator">=</span>window<span class="token punctuation">.</span><span class="token function">openDatabase</span><span class="token punctuation">(</span><span class="token string">"mydb"</span><span class="token punctuation">,</span><span class="token string">"1.0"</span><span class="token punctuation">,</span><span class="token string">"测试数据库"</span><span class="token punctuation">,</span><span class="token number">20000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">if</span><span class="token punctuation">(</span>mydb<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"mydb创建成功！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token operator">--</span><span class="token operator">-</span>执行建表语句
-
-mydb<span class="token punctuation">.</span><span class="token function">transaction</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>tx<span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-tx<span class="token punctuation">.</span><span class="token function">executeSql</span><span class="token punctuation">(</span><span class="token string">"CREATE TABLE TT (ID INT UNIQUE,TITLE TEXT)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
+                <h1 id="一、含义"><a href="#一、含义" class="headerlink" title="一、含义"></a>一、含义</h1><p>ECMAscript 6 原生提供了 Promise 对象。</p>
+<p>Promise 对象代表了未来将要发生的事件，用来传递异步操作的消息。</p>
+<p><strong>Promise</strong> 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值，</p>
+<p>Promise对象代表异步操作，于是有三种状态来表示：</p>
+<ul>
+<li>pending: 初始状态，不是成功或失败状态。</li>
+<li>fulfilled: 意味着操作成功完成。</li>
+<li>rejected: 意味着操作失败。</li>
+</ul>
+<p>而初始化Promise可以使用new的方式调用Promise构造器进行实例化：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>    
+    <span class="token comment" spellcheck="true">// 异步处理    </span>
+    <span class="token comment" spellcheck="true">// 处理结束后、调用resolve 或 reject </span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>—插入数据</p>
-<pre><code>mydb.transaction(function(tx){
+<p>构造函数中包含resolve与reject函数。如果一切正常则调用resolve，反之调用reject。</p>
+<h1 id="二、具体用法"><a href="#二、具体用法" class="headerlink" title="二、具体用法"></a>二、具体用法</h1><p>1.下面是一个用 Promise 对象实现的 Ajax 操作的例子。（来自菜鸟）</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ajax</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        req<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> URL<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        req<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                <span class="token function">resolve</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> 
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        req<span class="token punctuation">.</span>onerror <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        req<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> URL <span class="token operator">=</span> <span class="token string">"/try/ajax/testpromise.php"</span><span class="token punctuation">;</span> 
+<span class="token function">ajax</span><span class="token punctuation">(</span>URL<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">onFulfilled</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'内容是：'</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">onRejected</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'错误：'</span> <span class="token operator">+</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>从定义的函数ajax中可以看出，Promise的状态设定根据req的返回状态来决定执行resolve或者reject函数。而从调用方法中可以看出ajax的返回成功执行的内容与失败时输出的内容。</p>
+<p>另一种依赖式的参数传递</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ... some code</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( 1,&#39;i am title&#39;)&quot;);
-
-});
-
-mydb.transaction(function(tx){
-
-tx.executeSql(&quot;INSERT INTO TT (ID,TITLE) VALUES( ?,?)&quot;,[1,&quot;i am title&quot;]);
-
-});</code></pre>
-<p>—删除数据</p>
-<pre><code>mydb.transaction(function(tx){
-
-tx.executeSql(&quot;DELETE FROM TT WHERE ID=1&quot;);
-
-});</code></pre>
-<p>—查询语句</p>
-<pre><code>mydb.transaction(function(tx){
-
-tx.executeSql(&quot;select * from tt&quot;,[],function(tx,rs){
-
-//查询结果
-
-for(var i =0; i &lt; rs.rows.length;i++){
-
-console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;ID&#39;]);
-
-}
-
-}),function(tx){
-
-//错误信息
-
-});
-
-});</code></pre>
-<p>4.Html5离线应用存储（浏览器兼容允许下）</p>
-<p>4.1 修改服务器的配置文件（apache/nginx/iis等）</p>
-<p>让服务器支持.manifest文件</p>
-<p>AddType text/cache-manifest .manifest</p>
-<p>4.2 创建manifest文件在项目中</p>
-<p>例：offline.manifest</p>
-<p>CACHE MANIFEST——标题头</p>
-<p>index.html              ——-页面缓存</p>
-<p>style.css              ——-css缓存</p>
-<p>image.jpg              ——-图片缓存</p>
-<p>4.3 离线内容更新</p>
-<p>自动更新跟手动更新</p>
+<span class="token keyword">var</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ... some code</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>此时p1 和 p2 都是 Promise 的实例，但是 p2 的 resolve 方法将 p1 作为参数，这时 p1 的状态就会传递给 p2。如果调用的时候，p1 的状态是 pending，那么 p2 的回调函数就会等待 p1 的状态改变；如果 p1 的状态已经是 fulfilled 或者 rejected，那么 p2 的回调函数将会立刻执行。</p>
 
             </div>
             <hr/>
@@ -513,7 +464,7 @@ console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://gaoys.top/2020/08/16/H5%20%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/">http://gaoys.top/2020/08/16/H5%20%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95/</a>
+                    <a href="http://gaoys.top/2020/09/26/JavaScript-Promise%E7%94%A8%E6%B3%95/">http://gaoys.top/2020/09/26/JavaScript-Promise%E7%94%A8%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,12 +502,16 @@ console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/HTML5/">
-                                    <span class="chip bg-color">HTML5</span>
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/Promise/">
+                                    <span class="chip bg-color">Promise</span>
+                                </a>
+                            
+                                <a href="/tags/ES6/">
+                                    <span class="chip bg-color">ES6</span>
                                 </a>
                             
                         </div>
@@ -724,32 +679,32 @@ console.log(rs.rows.item(i)[&#39;title&#39;]+&quot; &quot;+rs.rows.item(i)[&#39;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/16/H5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <a href="/2020/09/26/JavaScript-Promise%E7%94%A8%E6%B3%95/">
                     <div class="card-image">
                         
-                        <img src="/images/html5.jpg" class="responsive-img" alt="H5学习笔记">
+                        <img src="/images/promise.jpg" class="responsive-img" alt="JavaScript Promise用法">
                         
-                        <span class="card-title">H5学习笔记</span>
+                        <span class="card-title">JavaScript Promise用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            H5学习笔记一、video标签学习
-onafterprint    文档打印之后运行的脚本。
-onbeforeprint    文档打印之前运行的脚本。
-onbeforeunload    文档卸载之前运行的脚本。
-onerror    在
+                            一、含义ECMAscript 6 原生提供了 Promise 对象。
+Promise 对象代表了未来将要发生的事件，用来传递异步操作的消息。
+Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值，
+Promise对象
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -762,11 +717,20 @@ onerror    在
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/HTML5/">
-                        <span class="chip bg-color">HTML5</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                    <a href="/tags/Promise/">
+                        <span class="chip bg-color">Promise</span>
+                    </a>
+                    
+                    <a href="/tags/ES6/">
+                        <span class="chip bg-color">ES6</span>
                     </a>
                     
                 </div>
@@ -780,34 +744,33 @@ onerror    在
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/16/%E4%B8%AA%E4%BA%BA%E8%B8%A9%E5%9D%91%E3%80%90%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E3%80%91/">
+                <a href="/2020/08/30/springbootnetty/">
                     <div class="card-image">
                         
-                        <img src="/images/geren.jpg" class="responsive-img" alt="个人踩坑【持续更新】">
+                        <img src="/images/springbootnetty.jpg" class="responsive-img" alt="Springboot整合Netty框架">
                         
-                        <span class="card-title">个人踩坑【持续更新】</span>
+                        <span class="card-title">Springboot整合Netty框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            个人踩坑【持续更新】1、**子线程中发生了异常，如果没有任何类来接手处理的话，是会直接退出的，而不会记录任何日志。**
-所以，如果什么都不做的话，是会出现子线程任务既没执行成功，也没有任何日志提示的“诡异”现象的。
+                            Springboot整合Netty框架一、新建Springboot模块以我们之前的工程为主，新建一个module为Nettytest。
 
-
-解决办法：https
+二、pom文件中配置netty包&lt;dependency>
+    &lt;groupId>io.
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%8F%E9%AA%8C/" class="post-category">
-                                    经验
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
                                 </a>
                             
                             
@@ -817,12 +780,12 @@ onerror    在
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
+                    <a href="/tags/Springboot/">
+                        <span class="chip bg-color">Springboot</span>
                     </a>
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">前端</span>
+                    <a href="/tags/Netty/">
+                        <span class="chip bg-color">Netty</span>
                     </a>
                     
                 </div>
